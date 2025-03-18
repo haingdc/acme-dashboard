@@ -33,6 +33,8 @@ jobs:
 
       - name: Build step
         run: "npm run build && (cp -r public .next/standalone/public; cp -r .next/static .next/standalone/.next/static; mv .next/standalone/server.js .next/standalone/server.cjs)"
+        env:
+          POSTGRES_URL: ${{ secrets.POSTGRES_URL }}
 
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
