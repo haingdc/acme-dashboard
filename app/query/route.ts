@@ -1,7 +1,7 @@
 import { neon } from '@neondatabase/serverless';
+import process from 'node:process'
 
-const databaseUrl = Deno.env.get('DATABASE_URL')!;
-const sql = neon(databaseUrl);
+const sql = neon(process.env.POSTGRES_URL!);
 
 async function listInvoices() {
 	const data = await sql`
