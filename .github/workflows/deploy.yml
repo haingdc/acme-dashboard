@@ -39,7 +39,7 @@ jobs:
       - name: Upload to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: "hainguyengi-acme-dashbo-43"
+          project: "haingdc-acme-dashboard"
           entrypoint: "./server.cjs"
           root: ".next/standalone"
           
