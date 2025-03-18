@@ -1,0 +1,14 @@
+{
+  "unstable": ["unsafe-proto"],
+  "nodeModulesDir": "auto",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "lib": [
+      "dom", "dom.iterable", "esnext", "deno.ns"
+    ]
+  },
+  "imports": {
+    
+    "@/": "./"
+  }
+}
