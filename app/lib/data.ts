@@ -8,6 +8,7 @@ import type {
   Revenue,
 } from './definitions.ts';
 import { formatCurrency } from './utils.ts';
+// import { unstable_cache } from 'next/cache';
 
 const sql = neon("postgres://neondb_owner:npg_iXpeAgQLrY74@ep-nameless-recipe-a168bzgy-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require");
 
@@ -29,6 +30,11 @@ export async function fetchRevenue() {
     throw new Error('Failed to fetch revenue data.');
   }
 }
+
+
+// #reference: https://nextjs.org/docs/app/api-reference/functions/unstable_cache
+// Uncomment dòng dưới nếu muốn cache ở function thì gọi hàm dưới thay vì hàm fetchRevenue ở trên
+// export const fetchRevenueCache = unstable_cache(fetchRevenue, ['my-app-user'])
 
 export async function fetchLatestInvoices() {
   try {
