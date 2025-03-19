@@ -1,3 +1,4 @@
-export default function Page() {
-  return <p>Dashboard Page</p>;
+export default async function Page() {
+  await new Promise((res) => setTimeout(res, 3000))
+  return <p>Invoices Page</p>;
 }
