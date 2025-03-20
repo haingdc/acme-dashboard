@@ -4,7 +4,8 @@
     "standalone:copy": "cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/",
     "standalone:rename": "test -f .next/standalone/server.js && mv .next/standalone/server.js .next/standalone/server.cjs",
     "standalone:prepare": "deno task standalone:copy && deno task standalone:rename",
-    "standalone:start": "deno run --allow-all .next/standalone/server.cjs"
+    "standalone:start": "deno run --allow-all .next/standalone/server.cjs",
+    "standalone:preview": "deno task standalone:prepare && deno task standalone:start"
   },
   "unstable": ["unsafe-proto"],
   "nodeModulesDir": "auto",
