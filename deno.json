@@ -16,5 +16,8 @@
   },
   "imports": {
     "@/": "./"
+  },
+  "lint": {
+    "exclude": ["lib.deno.d.ts"]
   }
 }
