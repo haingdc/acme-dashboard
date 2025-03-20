@@ -4,6 +4,8 @@ import { z } from 'zod';
 import { neon } from '@neondatabase/serverless';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+import { signIn } from '@/auth.ts';
+import { AuthError } from 'next-auth';
 
 const sql = neon("postgres://neondb_owner:npg_iXpeAgQLrY74@ep-nameless-recipe-a168bzgy-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require");
  
@@ -122,4 +124,23 @@ export async function updateInvoice(
 export async function deleteInvoice(id: string) {
   await sql`DELETE FROM invoices WHERE id = ${id}`;
   revalidatePath('/dashboard/invoices');
+}
+
+export async function authenticate(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+    await signIn('credentials', formData);
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case 'CredentialsSignin':
+          return 'Invalid credentials.';
+        default:
+          return 'Something went wrong.';
+      }
+    }
+    throw error;
+  }
 }

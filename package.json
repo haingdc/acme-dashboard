@@ -11,10 +11,13 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@neondatabase/serverless": "^0.10.4",
+    "@types/bcrypt": "^5.0.2",
+    "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
+    "next-auth": "^5.0.0-beta.25",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "^15.2.3",
+    "next": "^15.3.0-canary.14",
     "use-debounce": "^10.0.4",
     "zod": "^3.24.2"
   },
@@ -28,5 +31,6 @@
     "eslint": "^9",
     "eslint-config-next": "15.2.1",
     "@eslint/eslintrc": "^3"
-  }
+  },
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
 }
